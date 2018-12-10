@@ -32,3 +32,15 @@ docker@R90HE73F:/mnt/c/Users/irekromaniuk/syslog2la$ python csv2la.py
 Accepted
 ```
 ![Logs](la.PNG)
+
+### Testing syslog2la.py
+
+```
+docker@R90HE73F:/mnt/c/Users/irekromaniuk/syslog2la$ python syslog2la.py
+('111.222.3.4', '2.2.2.2', '22222')
+Accepted
+('111.222.3.4', '2.2.2.2', '22222')
+Accepted
+('111.222.3.4', '2.2.2.2', '22222')
+Accepted
+```

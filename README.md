@@ -32,6 +32,3 @@ docker@R90HE73F:/mnt/c/Users/irekromaniuk/syslog2la$ python csv2la.py
 Accepted
 ```
 ![Logs](la.PNG)
-<div style='float: center'>
-  <img style='width: 600px' src="la.PNG"></img>
-</div>

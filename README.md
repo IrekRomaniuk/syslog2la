@@ -35,7 +35,7 @@ Accepted
 ```
 ![Logs](la.PNG)
 
-### Testing syslog2la.py
+### Testing syslog2la.py (final syslog to Azure Log Analytics)
 
 ```
 docker@R90HE73F:/mnt/c/Users/irekromaniuk/syslog2la$ python syslog2la.py

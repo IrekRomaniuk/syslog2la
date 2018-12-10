@@ -21,7 +21,7 @@ fieldnames = ("Domain", "ReceiveTime", "SerialNum", "Type", "Subtype", "ConfigVe
 "NATDestinationPort", "Flags", "Protocol", "Action", "URL", "ThreatContentName", "Category", "Severity", "Direction", "Seqno", "ActionFlags",
 "SourceLocation", "DestinationLocation", "Cpadding_th", "ContentType", "Pcap_id", "Filedigest", "Cloud", "Url_idx", "User_agent", "Filetype", "Xff",
 "Referer", "Sender", "Subject", "Recipient", "Reportid")
-
+# based on https://gist.github.com/marcelom/4218010 from Marcelo
 class SyslogUDPHandler(SocketServer.BaseRequestHandler):
     def handle(self):
         data = str(bytes.decode(self.request[0].strip())).split(",")

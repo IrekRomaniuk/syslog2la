@@ -7,7 +7,7 @@ docker@R90HE73F:/mnt/c/Users/irekromaniuk/syslog2la$ python pysyslog.py
 
 ```
 
-2) Install and run syslog-generator
+2) Install and run my syslog-generator
 
 ```
 docker@R90HE73F:/mnt/c/Users/irekromaniuk$ echo $GOPATH

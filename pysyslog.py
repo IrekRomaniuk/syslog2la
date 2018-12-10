@@ -7,8 +7,8 @@
 ## That's it... it does nothing else...
 ## There are a few configuration parameters.
 
-LOG_FILE = 'youlogfile.log'
-HOST, PORT = "0.0.0.0", 514
+LOG_FILE = 'logfile.log'
+HOST, PORT = "0.0.0.0", 6514
 
 #
 # NO USER SERVICEABLE PARTS BELOW HERE...

@@ -10,9 +10,9 @@ LOG_FILE = 'logfile.log'
 # The log type is the name of the event that is being submitted
 log_type = 'SyslogTest'
 # Update the customer ID to your Log Analytics workspace ID
-customer_id = '277852e9-0d71-432a-a91b-0644e92fca5f'
+customer_id = ''
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   
-shared_key = "oYDh32hrOibGRn92FkhEgjzakPfWBBVo4Qz7uRcHHixdLA8Vr+WKnF9ceVmgetSTNsBPjkbzxvy7YqFjeXkH1A=="
+shared_key = ""
 fieldnames = ("Domain", "ReceiveTime", "SerialNum", "Type", "Subtype", "ConfigVersion", "GenerateTime", "SourceIP", "DestinationIP",
 	"NATSourceIP", "NATDestinationIP", "Rule", "SourceUser", "DestinationUser", "Application", "VirtualSystem", "SourceZone", "DestinationZone",
 	"InboundInterface", "OutboundInterface", "LogAction", "TimeLogged", "SessionID", "RepeatCount", "SourcePort", "DestinationPort", "NATSourcePort",

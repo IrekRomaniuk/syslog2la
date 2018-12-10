@@ -31,3 +31,7 @@ docker@R90HE73F:/mnt/c/Users/irekromaniuk$ head syslog2la/logfile.log
 docker@R90HE73F:/mnt/c/Users/irekromaniuk/syslog2la$ python csv2la.py
 Accepted
 ```
+![Kiku](./la.png)
+<div style='float: center'>
+  <img style='width: 600px' src="la.png"></img>
+</div>

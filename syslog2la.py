@@ -8,7 +8,7 @@ import hashlib
 import hmac
 import base64
 import os
-import sys
+#import sys
 
 HOST, PORT = "0.0.0.0", int(os.environ["SYSLOG_PORT"])
 # The log type is the name of the event that is being submitted
@@ -17,8 +17,6 @@ log_type = os.environ['LOG_TYPE'].rstrip("\n\r") # 'SyslogTest'
 customer_id = os.environ['CUSTOMER_ID'].rstrip("\n\r")
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   
 shared_key = os.environ['SHARED_KEY'].rstrip("\n\r")
-#print(PORT, log_type, customer_id , shared_key)
-#sys.exit()
 fieldnames = ("Domain", "ReceiveTime", "SerialNum", "Type", "Subtype", "ConfigVersion", "GenerateTime", "SourceIP", "DestinationIP",
 "NATSourceIP", "NATDestinationIP", "Rule", "SourceUser", "DestinationUser", "Application", "VirtualSystem", "SourceZone", "DestinationZone",
 "InboundInterface", "OutboundInterface", "LogAction", "TimeLogged", "SessionID", "RepeatCount", "SourcePort", "DestinationPort", "NATSourcePort",

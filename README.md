@@ -44,3 +44,13 @@ Accepted
 ('111.222.3.4', '2.2.2.2', '22222')
 Accepted
 ```
+
+### Dockerize
+
+```
+docker build -t syslog2azure .
+docker run -d --name syslog2azure -p 6514:6514 syslog2azure
+docker login
+docker tag syslog2azure irom77/syslog2azure
+docker push irom77/syslog2azure
+```

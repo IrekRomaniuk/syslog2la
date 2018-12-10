@@ -20,7 +20,6 @@ import SocketServer
 logging.basicConfig(level=logging.INFO, format='%(message)s', datefmt='', filename=LOG_FILE, filemode='a')
 
 class SyslogUDPHandler(SocketServer.BaseRequestHandler):
-
 	def handle(self):
 		data = bytes.decode(self.request[0].strip())
 		socket = self.request[1]

@@ -4,39 +4,32 @@ import datetime
 import hashlib
 import hmac
 import base64
+import csv
 
-# Update the customer ID to your Log Analytics workspace ID
-customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-
-# For the shared key, use either the primary or the secondary Connected Sources client authentication key   
-shared_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
+LOG_FILE = 'logfile.log'
 # The log type is the name of the event that is being submitted
-log_type = 'WebMonitorTest'
+log_type = 'SyslogTest'
+# Update the customer ID to your Log Analytics workspace ID
+customer_id = '277852e9-0d71-432a-a91b-0644e92fca5f'
+# For the shared key, use either the primary or the secondary Connected Sources client authentication key   
+shared_key = "oYDh32hrOibGRn92FkhEgjzakPfWBBVo4Qz7uRcHHixdLA8Vr+WKnF9ceVmgetSTNsBPjkbzxvy7YqFjeXkH1A=="
+fieldnames = ("Domain", "ReceiveTime", "SerialNum", "Type", "Subtype", "ConfigVersion", "GenerateTime", "SourceIP", "DestinationIP",
+	"NATSourceIP", "NATDestinationIP", "Rule", "SourceUser", "DestinationUser", "Application", "VirtualSystem", "SourceZone", "DestinationZone",
+	"InboundInterface", "OutboundInterface", "LogAction", "TimeLogged", "SessionID", "RepeatCount", "SourcePort", "DestinationPort", "NATSourcePort",
+	"NATDestinationPort", "Flags", "Protocol", "Action", "URL", "ThreatContentName", "Category", "Severity", "Direction", "Seqno", "ActionFlags",
+	"SourceLocation", "DestinationLocation", "Cpadding_th", "ContentType", "Pcap_id", "Filedigest", "Cloud", "Url_idx", "User_agent", "Filetype", "Xff",
+	"Referer", "Sender", "Subject", "Recipient", "Reportid")  
+json_data = []
+#the with statement is better since it handles closing your file properly after usage.
+with open(LOG_FILE, 'r') as csvfile:
+    #python's standard dict is not guaranteeing any order
+    reader = csv.DictReader(csvfile, fieldnames)
+    for row in reader:
+        entry = {}
+        for field in fieldnames:
+            entry[field] = row[field]
+        json_data.append(entry) 
 
-# An example JSON web monitor object
-json_data = [{
-   "slot_ID": 12345,
-    "ID": "5cdad72f-c848-4df0-8aaa-ffe033e75d57",
-    "availability_Value": 100,
-    "performance_Value": 6.954,
-    "measurement_Name": "last_one_hour",
-    "duration": 3600,
-    "warning_Threshold": 0,
-    "critical_Threshold": 0,
-    "IsActive": "true"
-},
-{   
-    "slot_ID": 67890,
-    "ID": "b6bee458-fb65-492e-996d-61c4d7fbb942",
-    "availability_Value": 100,
-    "performance_Value": 3.379,
-    "measurement_Name": "last_one_hour",
-    "duration": 3600,
-    "warning_Threshold": 0,
-    "critical_Threshold": 0,
-    "IsActive": "false"
-}]
 body = json.dumps(json_data)
 
 #####################

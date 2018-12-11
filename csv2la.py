@@ -5,14 +5,15 @@ import hashlib
 import hmac
 import base64
 import csv
+import os
 
 LOG_FILE = 'logfile.log'
 # The log type is the name of the event that is being submitted
-log_type = 'SyslogTest'
+log_type = os.environ['LOG_TYPE'].rstrip("\n\r")
 # Update the customer ID to your Log Analytics workspace ID
-customer_id = ''
+customer_id = os.environ['CUSTOMER_ID'].rstrip("\n\r")
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   
-shared_key = ""
+shared_key = os.environ['SHARED_KEY'].rstrip("\n\r")
 fieldnames = ("Domain", "ReceiveTime", "SerialNum", "Type", "Subtype", "ConfigVersion", "GenerateTime", "SourceIP", "DestinationIP",
 	"NATSourceIP", "NATDestinationIP", "Rule", "SourceUser", "DestinationUser", "Application", "VirtualSystem", "SourceZone", "DestinationZone",
 	"InboundInterface", "OutboundInterface", "LogAction", "TimeLogged", "SessionID", "RepeatCount", "SourcePort", "DestinationPort", "NATSourcePort",

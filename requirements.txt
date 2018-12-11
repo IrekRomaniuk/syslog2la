@@ -1,0 +1,6 @@
+requests
+datetime
+hashlib
+hmac
+base64
+os

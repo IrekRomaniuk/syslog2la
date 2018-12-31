@@ -49,12 +49,15 @@ Accepted
 
 ### Dockerize
 
-Docker HubL
+Docker Hub
 
 ```
 docker build -t syslog2azure .
-docker run -it --rm --name syslog2azure syslog2azure
-docker run -d --name syslog2azure -p 6514:6514 syslog2azure
+docker run -d --name syslog2azure \
+    -e "SYSLOG_PORT=6514" -e "LOG_TYPE=SyslogTest" \
+    -e "CUSTOMER_ID=$CUSTOMER_ID" -e "SHARED_KEY=$SHARED_KEY" \
+    -p 6514:6514/udp \
+    syslog2azure
 docker login
 docker tag syslog2azure irom77/syslog2azure
 docker push irom77/syslog2azure

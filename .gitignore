@@ -1,2 +1,2 @@
 env.sh
-k8s_configmaps.yaml
+k8s_configmap.yaml

@@ -2,8 +2,13 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: syslog2azure
+  labels:
+        app: syslog2azure
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: syslog2azure
   template:
     metadata:
       name: syslog2azure

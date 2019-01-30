@@ -17,12 +17,8 @@ log_type = os.environ['LOG_TYPE'].rstrip("\n\r") # 'SyslogTest'
 customer_id = os.environ['CUSTOMER_ID'].rstrip("\n\r")
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   
 shared_key = os.environ['SHARED_KEY'].rstrip("\n\r")
-fieldnames = ("Domain", "ReceiveTime", "SerialNum", "Type", "Subtype", "ConfigVersion", "GenerateTime", "SourceIP", "DestinationIP",
-"NATSourceIP", "NATDestinationIP", "Rule", "SourceUser", "DestinationUser", "Application", "VirtualSystem", "SourceZone", "DestinationZone",
-"InboundInterface", "OutboundInterface", "LogAction", "TimeLogged", "SessionID", "RepeatCount", "SourcePort", "DestinationPort", "NATSourcePort",
-"NATDestinationPort", "Flags", "Protocol", "Action", "URL", "ThreatContentName", "Category", "Severity", "Direction", "Seqno", "ActionFlags",
-"SourceLocation", "DestinationLocation", "Cpadding_th", "ContentType", "Pcap_id", "Filedigest", "Cloud", "Url_idx", "User_agent", "Filetype", "Xff",
-"Referer", "Sender", "Subject", "Recipient", "Reportid")
+fieldnames = ("Type","Subtype","Source","Destination","Port","Application","Action")
+# "$type","$subtype","$src","$dst","$dport","$app","$action"
 # based on https://gist.github.com/marcelom/4218010 from Marcelo
 class SyslogUDPHandler(SocketServer.BaseRequestHandler):
     def handle(self):
@@ -30,7 +26,7 @@ class SyslogUDPHandler(SocketServer.BaseRequestHandler):
         socket = self.request[1]
         #print( "%s : " % self.client_address[0], data)
         json_data=dict(zip(fieldnames, data))
-        # print( "%s" % json_data["SourceIP"],json_data["DestinationIP"],json_data["DestinationPort"])
+        # print( "%s" % json_data["Source"],json_data["Destination"],json_data["Port"])
         body = json.dumps(json_data)
         post_data(customer_id, shared_key, body, log_type)
 #####################

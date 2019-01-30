@@ -17,12 +17,12 @@ spec:
     spec:
       containers:
       - name: syslog2azure
-        image: irom77/syslog2azure:latest
+        image: irom77/syslog2azure:PanSyslog
         env:
         - name: SYSLOG_PORT
           value: "6514"
         - name: LOG_TYPE
-          value: "SyslogTest"  
+          value: "PanSyslog"  
         - name: CUSTOMER_ID
           valueFrom:
             configMapKeyRef:
